@@ -14,10 +14,10 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.5;
+            line-height: 1.4;
             color: #333;
             background: #f4f4f4;
-            padding: 20px 10px;
+            padding: 15px 10px;
         }
         .resume {
             max-width: 900px;
@@ -26,53 +26,57 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
-            padding: 30px 40px;
+            padding: 25px 35px;
         }
         .header {
-            text-align: center;
-            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
             border-bottom: 3px solid #2a5298;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
+        }
+        .header-left {
+            text-align: left;
+        }
+        .header-right {
+            text-align: right;
         }
         .name {
-            font-size: 2.8em;
+            font-size: 1.8em;
             font-weight: 700;
             color: #1e3c72;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
         .title {
-            font-size: 1.4em;
+            font-size: 1.1em;
             color: #2a5298;
-            margin: 8px 0;
         }
         .contact {
-            font-size: 1.05em;
-            margin: 10px 0;
+            font-size: 0.95em;
         }
         .contact a {
             color: #333;
             text-decoration: none;
-            margin: 0 15px;
+            display: block;
+            margin: 3px 0;
         }
         .contact a:hover {
             text-decoration: underline;
         }
-        .address {
-            font-size: 1.05em;
-            color: #555;
-        }
         .section {
-            margin-bottom: 28px;
+            margin-bottom: 18px;
         }
         .section:last-child {
             margin-bottom: 0;
         }
         .section h2 {
-            font-size: 1.6em;
+            font-size: 1.3em;
             color: #1e3c72;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
         }
         .section h2::after {
             content: '';
@@ -84,32 +88,35 @@
             background: #2a5298;
         }
         .summary {
-            font-size: 1.05em;
+            font-size: 0.95em;
             text-align: justify;
             color: #444;
+            line-height: 1.4;
         }
         .job-title {
-            font-size: 1.2em;
+            font-size: 1.05em;
             font-weight: 600;
             color: #1e3c72;
         }
         .company {
-            font-size: 1.1em;
+            font-size: 0.95em;
             color: #2a5298;
         }
         .dates {
             color: #777;
             font-style: italic;
-            font-size: 0.95em;
-            margin-bottom: 8px;
+            font-size: 0.85em;
+            margin-bottom: 5px;
         }
         ul {
             padding-left: 20px;
-            margin: 8px 0;
+            margin: 5px 0;
         }
         ul li {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             position: relative;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
         ul li::before {
             content: '\f058';
@@ -123,19 +130,19 @@
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 8px;
         }
         .skill {
             background: #2a5298;
             color: white;
-            padding: 6px 14px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 0.95em;
+            font-size: 0.85em;
         }
         .cert-list li {
-            margin-bottom: 8px;
-            font-size: 0.95em;
+            margin-bottom: 4px;
+            font-size: 0.9em;
         }
 
         /* Download Button Styling */
@@ -179,7 +186,7 @@
         @media print {
             body { background: white; padding: 0; }
             .resume { box-shadow: none; border-radius: 0; max-width: none; margin: 0; }
-            .download-btn { display: none; } /* Hide button when printing */
+            .download-btn { display: none; }
             @page { size: A4; margin: 0.5cm; }
         }
     </style>
@@ -192,14 +199,15 @@
 
     <div class="resume">
         <header class="header">
-            <h1 class="name">Aryan Raj</h1>
-            <div class="title">Data Analyst</div>
-            <div class="contact">
-                <a href="mailto:mearyanraj1501@gmail.com"><i class="fas fa-envelope"></i> mearyanraj1501@gmail.com</a>
-                <a href="tel:7542837450"><i class="fas fa-phone"></i> 7542837450</a>
+            <div class="header-left">
+                <h1 class="name">Aryan Raj</h1>
+                <div class="title">Data Analyst</div>
             </div>
-            <div class="address">
-                Mahavir Nagar, Salempur, P.O-Nauranga, P.S-Muffassil, District-Gaya, Pin-823003, Bihar, India
+            <div class="header-right">
+                <div class="contact">
+                    <a href="mailto:mearyanraj1501@gmail.com"><i class="fas fa-envelope"></i> mearyanraj1501@gmail.com</a>
+                    <a href="tel:7542837450"><i class="fas fa-phone"></i> 7542837450</a>
+                </div>
             </div>
         </header>
 
@@ -311,58 +319,9 @@
         </section>
     </div>
 
-    <!-- JavaScript Libraries for PDF Generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
     <script>
         function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
-            });
-
-            const resume = document.querySelector('.resume');
-            const button = document.querySelector('.download-btn');
-            button.style.display = 'none'; // Hide button during capture
-
-            html2canvas(resume, {
-                scale: 2, // Higher quality
-                useCORS: true,
-                logging: false
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 297; // A4 height in mm
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                let heightLeft = imgHeight;
-
-                let position = 0;
-
-                // Add image to PDF
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-
-                // Add new pages if content overflows
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    doc.addPage();
-                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-                }
-
-                // Save the PDF
-                doc.save('Aryan_Raj_Data_Analyst_Resume.pdf');
-
-                // Restore button
-                button.style.display = 'flex';
-            }).catch(err => {
-                console.error('Error generating PDF:', err);
-                alert('Failed to generate PDF. Please try printing instead (Ctrl+P).');
-                button.style.display = 'flex';
-            });
+            window.print();
         }
     </script>
 </body>
