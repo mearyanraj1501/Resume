@@ -139,6 +139,8 @@
             padding: 4px 12px;
             border-radius: 30px;
             font-size: 0.85em;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
         }
         .cert-list li {
             margin-bottom: 4px;
@@ -187,6 +189,11 @@
             body { background: white; padding: 0; }
             .resume { box-shadow: none; border-radius: 0; max-width: none; margin: 0; }
             .download-btn { display: none; }
+            .skill {
+                background: #2a5298 !important;
+                color: white !important;
+                border: 1px solid #2a5298;
+            }
             @page { size: A4; margin: 0.5cm; }
         }
     </style>
