@@ -34,6 +34,12 @@
             cursor: pointer;
             box-shadow: 0 5px 12px rgba(102, 126, 234, 0.4);
             z-index: 1000;
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 15px rgba(102, 126, 234, 0.5);
         }
        
         .resume {
@@ -59,6 +65,13 @@
             font-weight: 700;
             letter-spacing: 1.4px;
         }
+        
+        .tagline {
+            font-size: 13px;
+            font-weight: 400;
+            margin-top: 4px;
+            opacity: 0.95;
+        }
        
         .contact-info {
             display: flex;
@@ -80,13 +93,13 @@
         }
        
         .contact-info a, .contact-info span {
-            color: white !important;  /* Full white for maximum visibility */
+            color: white !important;
             text-decoration: none;
             font-weight: 500;
         }
        
         .content {
-            padding: 14px 26px 12px 26px;  /* Reduced top padding to minimize gap after header */
+            padding: 14px 26px 12px 26px;
         }
        
         h2 {
@@ -179,6 +192,11 @@
             line-height: 1.4;
             color: #4a5568;
         }
+        
+        li strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
        
         .summary {
             font-size: 12.8px;
@@ -191,22 +209,50 @@
             text-align: justify;
         }
        
-        .skills-line {
+        .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 5px;
+            gap: 8px;
+            margin-top: 8px;
             justify-content: flex-start;
         }
-       
-        .skill-item {
-            background: #5568d3;
-            color: white;
-            padding: 5px 12px;
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 8px 14px;
             border-radius: 20px;
-            text-align: center;
+            border: 2px solid #5568d3;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-category-title {
+            font-weight: 700;
+            font-size: 12px;
+            color: #5568d3;
+            white-space: nowrap;
+        }
+        
+        .skill-separator {
+            color: #5568d3;
             font-weight: 600;
-            font-size: 12.4px;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            align-items: center;
+        }
+        
+        .skill-tag {
+            background: white;
+            color: #4a5568;
+            padding: 3px 9px;
+            border-radius: 12px;
+            font-size: 11.5px;
+            font-weight: 600;
             white-space: nowrap;
         }
        
@@ -227,12 +273,31 @@
             font-weight: 600;
             font-size: 11.6px;
         }
+        
+        .coursework {
+            font-size: 12.4px;
+            color: #4a5568;
+            font-style: italic;
+            margin-top: 4px;
+        }
        
         @media print {
             body { background: white !important; padding: 0 !important; }
             .resume { box-shadow: none !important; }
             .download-btn { display: none !important; }
             @page { margin: 7mm; }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -241,6 +306,7 @@
         <div class="header">
             <div>
                 <h1 class="name">ARYAN RAJ</h1>
+                <div class="tagline">Civil Engineer | UPPCL Apprentice | AutoCAD • STAAD.Pro • REVIT Certified</div>
             </div>
             <div class="contact-info">
                 <div class="contact-item">
@@ -251,6 +317,10 @@
                     <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     <span>+91 7542837450</span>
                 </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Bangalore, India</span>
+                </div>
             </div>
         </div>
         
@@ -260,8 +330,105 @@
                 Professional Summary
             </h2>
             <div class="summary">
-                Dedicated Civil Engineering graduate skilled in structural design, project management, and sustainable practices.<br>
-                Strong problem-solver eager to drive high-impact infrastructure projects with precision and innovation.
+                Civil Engineering graduate (CGPA: 8.15) with 1 year of professional experience as Apprentice at Uttar Pradesh Power Corporation Limited, specializing in power infrastructure civil works. IIT Kanpur certified in structural analysis (STAAD.Pro), architectural design (REVIT), and CAD drafting (AutoCAD). Demonstrated expertise in site supervision, quality assurance, and multi-contractor coordination across substation and transmission line projects. Proficient in applying IS codes and safety standards to deliver high-quality infrastructure solutions with precision and innovation.
+            </div>
+            
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                Technical Skills
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Design & Analysis:</div>
+                    <div class="skill-items">
+                        <div class="skill-tag">AutoCAD</div>
+                        <div class="skill-tag">STAAD.Pro</div>
+                        <div class="skill-tag">REVIT</div>
+                        <div class="skill-tag">MS Office</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Technical:</div>
+                    <div class="skill-items">
+                        <div class="skill-tag">Structural Analysis</div>
+                        <div class="skill-tag">RCC Design</div>
+                        <div class="skill-tag">Site Supervision</div>
+                        <div class="skill-tag">Quality Control</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Standards:</div>
+                    <div class="skill-items">
+                        <div class="skill-tag">IS Codes</div>
+                        <div class="skill-tag">Safety Protocols</div>
+                        <div class="skill-tag">Project Management</div>
+                        <div class="skill-tag">Team Leadership</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+                Professional Experience
+            </h2>
+            
+            <div class="section-entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="role">Civil Engineering Apprentice</div>
+                        <div class="company">Uttar Pradesh Power Corporation Limited (UPPCL)</div>
+                    </div>
+                    <div class="date-badge">Oct 2024 – Oct 2025</div>
+                </div>
+                <ul>
+                    <li><strong>Project Supervision:</strong> Overseeing civil construction activities for 5+ substation projects, ensuring 100% compliance with IS 456:2000 standards and NBM&PR safety protocols</li>
+                    <li><strong>Quality Assurance:</strong> Conducting daily quality inspections of concrete works, earthwork, and foundation structures, reducing rework instances by maintaining strict adherence to specifications</li>
+                    <li><strong>Contractor Coordination:</strong> Managing relationships with 8+ contractors and vendors, coordinating material procurement and work scheduling to maintain project timelines</li>
+                    <li><strong>Technical Documentation:</strong> Preparing site progress reports, material consumption records, and as-built drawings using AutoCAD for transmission line infrastructure</li>
+                    <li><strong>Safety Management:</strong> Implementing site safety protocols and conducting weekly safety audits, contributing to zero major incidents during tenure</li>
+                </ul>
+            </div>
+            
+            <div class="section-entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="role">Industrial Training Intern</div>
+                        <div class="company">NDS Infratech Pvt. Ltd.</div>
+                    </div>
+                    <div class="date-badge">Oct 2021 – Nov 2021</div>
+                </div>
+                <ul>
+                    <li><strong>Large-Scale Infrastructure:</strong> Contributed to residential township project valued at ₹50+ crores, gaining exposure to planning, execution, and quality monitoring across 100+ units</li>
+                    <li><strong>Modern Construction Techniques:</strong> Learned precast construction methods, sustainable building materials, and green building practices including rainwater harvesting systems</li>
+                    <li><strong>Resource Management:</strong> Assisted project engineers in material estimation, labor allocation, and equipment utilization, optimizing resource deployment for 3 concurrent building blocks</li>
+                    <li><strong>Safety Protocols:</strong> Participated in site safety training programs and observed implementation of PPE standards and scaffolding safety regulations</li>
+                </ul>
+            </div>
+            
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                Academic Projects
+            </h2>
+            
+            <div class="section-entry">
+                <div class="role">Multi-Storey RCC Residential Building Design</div>
+                <div class="company">B.Tech Final Year Project</div>
+                <ul>
+                    <li><strong>Structural Analysis:</strong> Designed G+4 residential building using STAAD.Pro, performing comprehensive analysis for gravity and lateral loads as per IS 1893 (Earthquake) and IS 875 (Wind/Live loads)</li>
+                    <li><strong>Design Optimization:</strong> Designed columns, beams, slabs, and foundation following IS 456:2000, achieving 12% cost reduction through optimal column placement and beam sizing</li>
+                    <li><strong>Documentation:</strong> Created complete architectural plans, structural drawings, reinforcement detailing, and BOQ using AutoCAD</li>
+                    <li><strong>Result:</strong> Project approved with distinction grade for innovative use of shear walls to improve lateral stability</li>
+                </ul>
+            </div>
+            
+            <div class="section-entry">
+                <div class="role">Highway Bridge Structural Design</div>
+                <div class="company">Structural Engineering Course Project</div>
+                <ul>
+                    <li>Analyzed and designed 25-meter span RCC T-beam bridge for IRC Class A loading, calculating dead load, live load impact, and load distribution</li>
+                    <li>Performed moment and shear force analysis, designed main girders, cross-beams, and deck slab with complete reinforcement detailing</li>
+                    <li>Prepared detailed cross-sectional drawings and construction sequence diagrams in AutoCAD</li>
+                </ul>
             </div>
             
             <h2>
@@ -271,141 +438,116 @@
             
             <div class="section-entry">
                 <div class="edu-header">
-                    <div class="institution">Bakhtiyarpur College of Engineering, Patna, Bihar, India</div>
-                    <div class="date-badge">Aug 2018 – July 2022</div>
+                    <div class="institution">Bakhtiyarpur College of Engineering, Patna</div>
+                    <div class="date-badge">Aug 2018 – Jul 2022</div>
                 </div>
                 <div class="degree-line">
                     <div class="degree-text">Bachelor of Technology (B.Tech) in Civil Engineering</div>
-                    <div class="mark-badge">CGPA: 8.15</div>
+                    <div class="mark-badge">CGPA: 8.15/10</div>
+                </div>
+                <div class="coursework">Relevant Coursework: Structural Analysis, RCC Design, Steel Structures, Soil Mechanics, Foundation Engineering, Transportation Engineering, Construction Management, Surveying, Concrete Technology</div>
+            </div>
+            
+            <div class="section-entry">
+                <div class="edu-header">
+                    <div class="institution">Al Momin International School, Gaya</div>
+                    <div class="date-badge">Apr 2015 – Apr 2017</div>
+                </div>
+                <div class="degree-line">
+                    <div class="degree-text">CBSE Class XII (Senior Secondary)</div>
+                    <div class="mark-badge">73%</div>
                 </div>
             </div>
             
             <div class="section-entry">
                 <div class="edu-header">
-                    <div class="institution">Al Momin International School, Gaya, Bihar, India</div>
-                    <div class="date-badge">April 2015 – April 2017</div>
+                    <div class="institution">DAV Public School, Gaya</div>
+                    <div class="date-badge">Mar 2015</div>
                 </div>
                 <div class="degree-line">
-                    <div class="degree-text">CBSE 12th</div>
-                    <div class="mark-badge">Percentage: 73%</div>
-                </div>
-            </div>
-            
-            <div class="section-entry">
-                <div class="edu-header">
-                    <div class="institution">DAV Public School, Gaya, Bihar, India</div>
-                    <div class="date-badge">March 2015</div>
-                </div>
-                <div class="degree-line">
-                    <div class="degree-text">CBSE 10th</div>
-                    <div class="mark-badge">CGPA: 10</div>
+                    <div class="degree-text">CBSE Class X (Secondary)</div>
+                    <div class="mark-badge">CGPA: 10/10</div>
                 </div>
             </div>
             
             <h2>
                 <svg class="section-icon" viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
-                Training & Certification
+                Certifications & Training
             </h2>
             
             <div class="section-entry">
                 <div class="entry-header">
                     <div>
-                        <div class="role">Apprenticeship – Civil Department</div>
-                        <div class="company">Uttar Pradesh Power Corporation Limited (UPPCL)</div>
+                        <div class="role">STAAD.Pro - Structural Analysis & Design</div>
+                        <div class="company">EICT, IIT Kanpur (Online Certification)</div>
                     </div>
-                    <div class="date-badge">21 Oct 2024 – 20 Oct 2025</div>
+                    <div class="date-badge">Sep 2020 – Oct 2020</div>
                 </div>
                 <ul>
-                    <li>Gaining practical exposure in civil works related to power infrastructure projects, including site supervision, quality control, and coordination with contractors</li>
-                    <li>Assisting in the planning, execution, and maintenance of civil structures for substations and transmission facilities</li>
-                    <li>Applying knowledge of structural design and safety standards in real-world power sector projects</li>
+                    <li>Comprehensive training in structural analysis and design of buildings, bridges, towers, and culverts using STAAD.Pro software</li>
+                    <li>Learned load combinations, code-based design (IS/BS/AISC), steel and concrete member design, and result interpretation</li>
                 </ul>
             </div>
             
             <div class="section-entry">
                 <div class="entry-header">
                     <div>
-                        <div class="role">REVIT Architecture</div>
-                        <div class="company">EICT, IIT Kanpur</div>
+                        <div class="role">REVIT Architecture - BIM Design</div>
+                        <div class="company">EICT, IIT Kanpur (Online Certification)</div>
                     </div>
-                    <div class="date-badge">March 2015</div>
+                    <div class="date-badge">2021</div>
                 </div>
                 <ul>
-                    <li>Learnt methods to generate high-quality construction documents including plans, sections, elevations, and details</li>
+                    <li>Trained in Building Information Modeling (BIM) concepts and REVIT Architecture workflow for architectural design documentation</li>
+                    <li>Learned 3D modeling, parametric families, construction documentation, plans, sections, elevations, and schedules generation</li>
                 </ul>
             </div>
             
             <div class="section-entry">
                 <div class="entry-header">
                     <div>
-                        <div class="role">STAAD.Pro</div>
-                        <div class="company">EICT, IIT Kanpur</div>
+                        <div class="role">AutoCAD - Professional Drafting</div>
+                        <div class="company">Internshala (Online Training)</div>
                     </div>
-                    <div class="date-badge">08 Sept 2020 – 20 Oct 2020</div>
+                    <div class="date-badge">Oct 2019 – Nov 2019</div>
                 </div>
                 <ul>
-                    <li>Learnt analysis and design of various structures including towers, bridges, buildings, culverts, and tunnels</li>
+                    <li>Advanced training in 2D drafting, 3D modeling, blocks, external references, dimensions, annotations, and layouts</li>
+                    <li>Completed certification project demonstrating proficiency in creating professional construction drawings</li>
                 </ul>
             </div>
             
             <div class="section-entry">
-                <div class="entry-header">
-                    <div>
-                        <div class="role">AutoCAD</div>
-                        <div class="company">Internshala</div>
-                    </div>
-                    <div class="date-badge">19 Oct 2019 – 29 Nov 2019</div>
-                </div>
+                <div class="role">NPTEL Online Certifications (IIT/IISC)</div>
                 <ul>
-                    <li>Trained in advanced drawing techniques, blocks, attributes, external references, 3D modeling, rendering, and visualization</li>
-                    <li>Completed hands-on projects, assessments, and a final certification project</li>
+                    <li><strong>Effective Writing</strong> - Communication skills for technical documentation <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan-Feb 2020)</span></li>
+                    <li><strong>Soft Skills Development</strong> - Professional workplace competencies <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan-Mar 2021)</span></li>
+                    <li><strong>Emotional Intelligence</strong> - Leadership and interpersonal effectiveness <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan-Mar 2022)</span></li>
                 </ul>
-            </div>
-            
-            <div class="section-entry">
-                <div class="entry-header">
-                    <div>
-                        <div class="role">Industrial Training</div>
-                        <div class="company">NDS Infratech PVT LTD</div>
-                    </div>
-                    <div class="date-badge">01 Oct 2021 – 30 Nov 2021</div>
-                </div>
-                <ul>
-                    <li>Gained insight into managing large-scale infrastructure projects, team coordination, resource management, and adherence to timelines and quality standards</li>
-                    <li>Learned modern construction technologies, sustainable materials, eco-friendly practices, and safety protocols</li>
-                </ul>
-            </div>
-            
-            <div class="section-entry">
-                <div class="role">NPTEL Online Certifications</div>
-                <ul>
-                    <li>Effective Writing <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan 2020 – Feb 2020)</span></li>
-                    <li>Soft Skill Development <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan 2021 – March 2021)</span></li>
-                    <li>Emotional Intelligence <span style="color: #5568d3; font-style: italic; font-weight: 600;">(Jan 2022 – March 2022)</span></li>
-                </ul>
-            </div>
-            
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24"><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/></svg>
-                Key Strengths
-            </h2>
-            <div class="skills-line">
-                <div class="skill-item">Leadership Quality</div>
-                <div class="skill-item">Problem-Solving</div>
-                <div class="skill-item">Decision-Making</div>
-                <div class="skill-item">Adaptability</div>
-                <div class="skill-item">Strong Work Ethics</div>
             </div>
             
             <h2>
                 <svg class="section-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                Interests
+                Additional Information
             </h2>
-            <div class="interests">
-                <div class="interest-tag">📚 Reading Books</div>
-                <div class="interest-tag">🏏 Playing Cricket</div>
-                <div class="interest-tag">✈️ Travelling</div>
-                <div class="interest-tag">🎵 Listening to Music</div>
+            
+            <div class="section-entry">
+                <div class="role">Languages</div>
+                <div class="skill-items" style="margin-top: 6px;">
+                    <div class="skill-tag">Hindi (Native)</div>
+                    <div class="skill-tag">English (Professional)</div>
+                    <div class="skill-tag">Urdu (Conversational)</div>
+                </div>
+            </div>
+            
+            <div class="section-entry">
+                <div class="role">Interests & Hobbies</div>
+                <div class="interests" style="margin-top: 6px;">
+                    <div class="interest-tag">📚 Reading Technical Books</div>
+                    <div class="interest-tag">🏏 Playing Cricket</div>
+                    <div class="interest-tag">✈️ Travelling</div>
+                    <div class="interest-tag">🎵 Listening to Music</div>
+                </div>
             </div>
         </div>
     </div>
@@ -434,13 +576,11 @@
             
             const imgWidth = 210;
             const imgHeight = (canvas.height * imgWidth) / canvas.width;
-            pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
-            pdf.save('Aryan_Raj_Resume.pdf');
-
-            button.style.display = 'block';
-            button.textContent = '📥 Download PDF';
-            button.disabled = false;
-        }
-    </script>
-</body>
-</html>
+            
+            let heightLeft = imgHeight;
+            let position = 0;
+            
+            pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+            heightLeft -= 297;
+            
+            while (heightLeft >= 0) {
