@@ -330,7 +330,7 @@
                 Professional Summary
             </h2>
             <div class="summary">
-                Civil Engineering graduate (CGPA: 8.15) with 1 year of professional experience as Apprentice at Uttar Pradesh Power Corporation Limited, specializing in power infrastructure civil works. IIT Kanpur certified in structural analysis (STAAD.Pro), architectural design (REVIT), and CAD drafting (AutoCAD). Demonstrated expertise in site supervision, quality assurance, and multi-contractor coordination across substation and transmission line projects. Proficient in applying IS codes and safety standards to deliver high-quality infrastructure solutions with precision and innovation.
+                Civil Engineering graduate (CGPA: 8.15) with 3+ months of professional experience as Apprentice at Uttar Pradesh Power Corporation Limited, specializing in power infrastructure civil works. IIT Kanpur certified in structural analysis (STAAD.Pro), architectural design (REVIT), and CAD drafting (AutoCAD). Demonstrated expertise in site supervision, quality assurance, and multi-contractor coordination across substation and transmission line projects. Proficient in applying IS codes and safety standards to deliver high-quality infrastructure solutions with precision and innovation.
             </div>
             
             <h2>
@@ -584,3 +584,15 @@
             heightLeft -= 297;
             
             while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                heightLeft -= 297;
+            }
+            
+            pdf.save('Aryan_Raj_Resume.pdf');
+
+            button.style.display = 'block';
+            button.textContent = '📥 Download PDF';
+            button.disabled = false;
+        }
